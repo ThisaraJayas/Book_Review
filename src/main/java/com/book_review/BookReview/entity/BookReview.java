@@ -16,11 +16,11 @@ public class BookReview {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private String bookTitle;
 	private String author;
-	private int rating;
+	private Integer rating;
 	private String reviewText;
 	private LocalDateTime dateAdded;
 

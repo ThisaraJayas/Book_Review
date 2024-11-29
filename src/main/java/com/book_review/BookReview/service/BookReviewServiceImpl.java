@@ -29,7 +29,7 @@ public class BookReviewServiceImpl implements BookReviewService{
 	}
 
 	@Override
-	public BookReview updateReview(Integer id, BookReview updatedReview) {
+	public BookReview updateReview(Long id, BookReview updatedReview) {
 		BookReview existingReview = bookReviewRepository.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Review not found"));
 		
@@ -42,7 +42,7 @@ public class BookReviewServiceImpl implements BookReviewService{
 	}
 
 	@Override
-	public void deleteReview(Integer id) {
+	public void deleteReview(Long id) {
 		if (!bookReviewRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Review not found");
         }

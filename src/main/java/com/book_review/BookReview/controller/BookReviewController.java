@@ -33,12 +33,12 @@ public class BookReviewController {
     }
 	
 	@PutMapping("/{id}")
-	public BookReview updateReview(@PathVariable Integer id, @RequestBody BookReview updatedReview) {
+	public BookReview updateReview(@PathVariable Long id, @RequestBody BookReview updatedReview) {
 	    return bookReviewService.updateReview(id, updatedReview);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteReview(@PathVariable Integer id) {
+	public void deleteReview(@PathVariable Long id) {
 		bookReviewService.deleteReview(id);
 	 }
 

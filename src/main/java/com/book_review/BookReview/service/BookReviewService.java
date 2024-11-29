@@ -10,8 +10,8 @@ public interface BookReviewService {
 
 	List<BookReview> getAllReviews();
 
-	BookReview updateReview(Integer id, BookReview updatedReview);
+	BookReview updateReview(Long id, BookReview updatedReview);
 
-	void deleteReview(Integer id);
+	void deleteReview(Long id);
 
 }
