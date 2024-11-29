@@ -14,4 +14,6 @@ public interface BookReviewService {
 
 	void deleteReview(Long id);
 
+	BookReview getReviewById(Long id);
+
 }

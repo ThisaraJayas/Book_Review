@@ -27,6 +27,8 @@ public class BookReviewServiceImpl implements BookReviewService{
 	public List<BookReview> getAllReviews() {
 		return bookReviewRepository.findAll();
 	}
+	
+	
 
 	@Override
 	public BookReview updateReview(Long id, BookReview updatedReview) {
@@ -44,10 +46,16 @@ public class BookReviewServiceImpl implements BookReviewService{
 	@Override
 	public void deleteReview(Long id) {
 		if (!bookReviewRepository.existsById(id)) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Review not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "review not found");
         }
 		bookReviewRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public BookReview getReviewById(Long id) {
+		return bookReviewRepository.findById(id)
+	            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "review not found"));
 	}
 
 }

@@ -3,6 +3,7 @@ package com.book_review.BookReview.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.book_review.BookReview.service.BookReviewService;
 
 @RestController
 @RequestMapping("/reviews")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BookReviewController {
 	
 	@Autowired
@@ -30,6 +32,10 @@ public class BookReviewController {
 	@GetMapping
     public List<BookReview> getAllReviews() {
         return bookReviewService.getAllReviews();
+    }
+	@GetMapping("/{id}")
+    public BookReview getReviewById(@PathVariable Long id) {
+        return bookReviewService.getReviewById(id);
     }
 	
 	@PutMapping("/{id}")
